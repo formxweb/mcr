@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MCR MEN'S WEAR — Online Mağaza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&display=swap" rel="stylesheet" />
+<style>
+/* ===== AYAR: Sadece sayfa sonundaki CONFIG bolumunu degistir. ===== */
+:root{
+  --accent:#e11d2a; --accent-d:#b51522;
+  --ink:#141414; --muted:#6a6a6a;
+  --line:#e7e7e7; --bg:#ffffff; --soft:#f5f5f4; --card:#ffffff;
+  --radius:7px; --shadow:0 1px 3px rgba(27,23,16,.05),0 14px 40px rgba(27,23,16,.09);
+  --f-sans:'Archivo',system-ui,sans-serif; --f-serif:'Bodoni Moda',Didot,Georgia,serif;
+  --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f-sans);color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,.serif{font-family:var(--f-serif);font-weight:600;line-height:1.08}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font-family:inherit;font-size:.92rem}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+.upper{text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:600}
+.eyebrow{color:var(--accent-d)}
+
+/* ANNOUNCE marquee */
+.announce{background:var(--ink);color:#ececec;overflow:hidden;white-space:nowrap;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase}
+.announce .track{display:inline-block;padding:9px 0;animation:marq 22s linear infinite}
+.announce .track span{margin:0 26px}
+.announce b{color:var(--accent)}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:50;background:rgba(247,241,228,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:18px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo{width:42px;height:42px;border-radius:7px;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:var(--f-serif);font-size:1.4rem;font-weight:700;border:1px solid #333}
+.brand .nm{font-family:var(--f-serif);font-size:1.32rem;font-weight:700;letter-spacing:.02em;line-height:1}
+.brand .sb{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.nav-links{display:flex;gap:30px;font-size:.82rem;letter-spacing:.03em;color:var(--muted);font-weight:500}
+.nav-links a:hover{color:var(--ink)}
+.cart-btn{position:relative;display:flex;align-items:center;gap:8px;padding:11px 19px;border-radius:5px;background:var(--ink);color:#fff;font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;font-weight:600}
+.cart-btn:hover{background:#000}
+.cart-count{min-width:19px;height:19px;padding:0 5px;border-radius:10px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:.67rem;font-weight:700}
+
+/* HERO */
+.hero{border-bottom:1px solid var(--line)}
+.hero-in{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;padding:66px 0}
+.hero h1{font-size:clamp(2.7rem,6vw,4.7rem);margin:16px 0 20px;letter-spacing:-.01em}
+.hero p{font-size:1.06rem;color:var(--muted);max-width:36ch;margin-bottom:28px}
+.hero-meta{display:flex;gap:26px;margin-top:26px}
+.hero-meta .m{border-left:2px solid var(--accent);padding-left:12px}
+.hero-meta .m .n{font-family:var(--f-serif);font-size:1.5rem;font-weight:700}
+.hero-meta .m .l{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 28px;border-radius:5px;background:var(--ink);color:#fff;font-weight:600;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;transition:background .2s,transform .12s}
+.btn:hover{background:#000}.btn:active{transform:scale(.98)}
+.btn.gold{background:var(--accent);color:#fff}.btn.gold:hover{background:#000;color:#fff}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}.btn.ghost:hover{background:var(--ink);color:#fff}
+.hero-visual{aspect-ratio:4/5;border-radius:10px;overflow:hidden;box-shadow:var(--shadow);background:var(--soft)}
+.hero-visual img{width:100%;height:100%;object-fit:cover}
+.hero-visual .hv-ph{width:100%;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:32px;color:#dddddd;background:linear-gradient(150deg,#3a3a3a,#141414)}
+.hero-visual .hv-ph .l{font-family:var(--f-serif);font-size:2.1rem}
+
+/* TRUST */
+.trust-in{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-bottom:1px solid var(--line)}
+.trust-in .t{background:var(--bg);padding:20px 16px;display:flex;align-items:center;gap:12px}
+.trust-in .ic{font-size:1.25rem;color:var(--accent-d);flex-shrink:0}
+.trust-in .tt{font-size:.82rem;font-weight:600}.trust-in .ts{font-size:.72rem;color:var(--muted)}
+
+/* SECTION */
+.section{padding:60px 0}
+.section-head{text-align:center;margin-bottom:38px}
+.section-head h2{font-size:clamp(2rem,4.2vw,2.9rem);margin-top:8px}
+.section-head .sd{color:var(--muted);font-size:.95rem;margin-top:8px}
+.filters{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+.chip{padding:9px 18px;border-radius:4px;border:1px solid var(--line);background:var(--card);font-size:.76rem;letter-spacing:.07em;text-transform:uppercase;font-weight:600;color:var(--muted);transition:all .18s}
+.chip.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip:hover:not(.active){border-color:var(--accent);color:var(--ink)}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:box-shadow .25s,transform .25s;opacity:0;transform:translateY(12px)}
+.card.in{opacity:1;transform:none}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.card .ph{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer;background:var(--soft)}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .55s}
+.card:hover .ph img{transform:scale(1.045)}
+.card .ph .fallback{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:16px;color:#dddddd;background:linear-gradient(150deg,#3a3a3a,#141414)}
+.card .ph .fallback .fn{font-family:var(--f-serif);font-size:1.25rem}
+.card .ph .fallback .fc{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;opacity:.65}
+.card .tag{position:absolute;top:12px;left:12px;background:var(--bg);color:var(--ink);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:5px 10px;border-radius:3px}
+.card .quick{position:absolute;inset:auto 0 0 0;background:var(--ink);color:#fff;padding:12px;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;text-align:center;transform:translateY(100%);transition:transform .25s}
+.card:hover .quick{transform:none}
+.card .info{padding:16px 16px 18px;text-align:center}
+.card .info .nm{font-weight:600;font-size:.95rem;margin-bottom:4px}
+.card .info .ct{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:11px}
+.card .price{font-family:var(--f-serif);font-size:1.45rem;font-weight:700}
+.card .addbtn{margin-top:12px;width:100%;padding:11px;border:1px solid var(--ink);border-radius:4px;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;transition:all .18s}
+.card .addbtn:hover{background:var(--ink);color:#fff}
+
+/* BANNER */
+.banner{background:var(--ink);color:#fff;border-radius:10px;padding:52px;text-align:center;position:relative;overflow:hidden}
+.banner:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(225,29,42,.22),transparent 55%)}
+.banner>*{position:relative}
+.banner h3{font-size:2.1rem;color:#fff;margin:8px 0 10px}
+.banner p{color:rgba(255,255,255,.62);font-size:.95rem;margin-bottom:24px}
+
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px}
+.step .no{font-family:var(--f-serif);font-size:2.4rem;font-weight:700;color:var(--accent);line-height:1}
+.step h4{font-size:1.2rem;margin:10px 0 7px}
+.step p{font-size:.88rem;color:var(--muted);line-height:1.6}
+
+/* FAQ */
+.faq-wrap{max-width:760px;margin:0 auto}
+.faq{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);margin-bottom:10px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:18px 20px;font-weight:600;font-size:.96rem;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .ar{color:var(--accent-d);transition:transform .2s;font-size:1.1rem}
+.faq[open] summary .ar{transform:rotate(45deg)}
+.faq .a{padding:0 20px 20px;font-size:.9rem;color:var(--muted);line-height:1.7}
+
+/* MODALS */
+.overlay{position:fixed;inset:0;background:rgba(20,16,10,.55);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .25s;z-index:80}
+.overlay.open{opacity:1;pointer-events:auto}
+.modal{position:fixed;z-index:90;left:50%;top:50%;transform:translate(-50%,-46%);width:min(740px,94vw);max-height:90vh;overflow:auto;background:var(--card);border-radius:10px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.modal.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.modal-grid{display:grid;grid-template-columns:1fr 1fr}
+.modal-img{aspect-ratio:3/4;background:var(--soft)}
+.modal-img img,.modal-img .fallback{width:100%;height:100%;object-fit:cover}
+.modal-img .fallback{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#dddddd;background:linear-gradient(150deg,#3a3a3a,#141414)}
+.modal-img .fallback .fn{font-family:var(--f-serif);font-size:1.5rem}
+.modal-body{padding:30px}
+.modal-body .ct{color:var(--accent-d)}
+.modal-body h3{font-size:2rem;margin:8px 0 6px}
+.modal-body .mp{font-family:var(--f-serif);font-size:1.7rem;font-weight:700;margin-bottom:14px}
+.modal-body .desc{font-size:.9rem;color:var(--muted);margin-bottom:16px;line-height:1.65}
+.spec{list-style:none;margin-bottom:20px;border-top:1px solid var(--line)}
+.spec li{display:flex;justify-content:space-between;font-size:.82rem;padding:9px 0;border-bottom:1px solid var(--line)}
+.spec li .k{color:var(--muted)}
+.lbl{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:10px}
+.sizes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.size{min-width:46px;padding:10px 12px;border-radius:4px;border:1px solid var(--line);font-size:.85rem;text-align:center;font-weight:500;transition:all .15s}
+.size.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.size:hover:not(.active){border-color:var(--accent)}
+.x{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;font-size:1.05rem;z-index:3}
+
+/* DRAWER */
+.drawer{position:fixed;z-index:90;top:0;right:0;height:100%;width:min(430px,100vw);background:var(--bg);transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:22px;border-bottom:1px solid var(--line)}
+.drawer-head h3{font-size:1.4rem}
+.drawer-items{flex:1;overflow:auto;padding:6px 22px}
+.ci{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+.ci .cim{width:68px;height:86px;border-radius:5px;overflow:hidden;flex-shrink:0;background:var(--soft)}
+.ci .cim img,.ci .cim .fallback{width:100%;height:100%;object-fit:cover}
+.ci .cim .fallback{display:grid;place-items:center;color:#dddddd;font-size:.6rem;text-align:center;padding:4px;background:linear-gradient(150deg,#3a3a3a,#141414)}
+.ci .cd{flex:1}.ci .cd .nm{font-weight:600;font-size:.9rem}
+.ci .cd .meta{font-size:.76rem;color:var(--muted);margin:3px 0 9px}
+.qty{display:inline-flex;align-items:center;gap:13px;border:1px solid var(--line);border-radius:4px;padding:5px 11px}
+.qty button{font-size:1.05rem;width:18px;color:var(--muted)}.qty span{font-size:.85rem;min-width:14px;text-align:center}
+.ci .cp{font-family:var(--f-serif);font-size:1.1rem;font-weight:700;text-align:right;white-space:nowrap}
+.ci .rm{display:block;font-size:.72rem;color:var(--muted);text-decoration:underline;margin-top:8px}
+.empty{text-align:center;color:var(--muted);padding:70px 20px;font-size:.92rem;line-height:1.7}
+.drawer-foot{padding:20px 22px;border-top:1px solid var(--line);background:var(--soft)}
+.sumrow{display:flex;justify-content:space-between;font-size:.86rem;color:var(--muted);margin-bottom:7px}
+.sumrow.total{color:var(--ink);font-size:1.1rem;font-weight:700;margin:12px 0 15px;align-items:baseline}
+.sumrow.total span:last-child{font-family:var(--f-serif);font-size:1.45rem}
+.wfull{width:100%;padding:15px;border-radius:5px;font-weight:600;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;transition:background .2s}
+.wfull.primary{background:var(--accent);color:#fff}.wfull.primary:hover{background:#000;color:#fff}
+
+/* CHECKOUT */
+.co-grid{display:grid;grid-template-columns:1.25fr .95fr}
+.co-form{padding:30px;border-right:1px solid var(--line)}
+.co-form h3{font-size:1.7rem;margin-bottom:4px}
+.co-form .sub{font-size:.85rem;color:var(--muted);margin-bottom:22px}
+.field{margin-bottom:15px}
+.field label{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--muted);margin-bottom:6px}
+.field input,.field textarea{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:5px;background:#fff;transition:border-color .15s}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--accent)}
+.field.err input,.field.err textarea{border-color:#c0392b}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pay-opts{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.pay{border:1px solid var(--line);border-radius:6px;padding:14px;cursor:pointer;transition:border-color .15s,background .15s}
+.pay.sel{border-color:var(--accent);background:var(--soft)}
+.pay .ph{display:flex;align-items:center;gap:11px}
+.pay .dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--line);flex-shrink:0;position:relative}
+.pay.sel .dot{border-color:var(--accent)}.pay.sel .dot:after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--accent)}
+.pay .pt{font-weight:600;font-size:.9rem}.pay .pd{font-size:.78rem;color:var(--muted);margin-top:2px}
+.pay .extra{font-size:.82rem;margin-top:11px;padding-top:11px;border-top:1px dashed var(--line);display:none;line-height:1.8}
+.pay.sel .extra{display:block}.pay .extra b{font-weight:600}
+.pay.disabled{opacity:.55;cursor:not-allowed}
+.pay .soon{font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;background:var(--line);color:var(--muted);padding:3px 8px;border-radius:20px;margin-left:auto}
+.co-summary{padding:30px;background:var(--soft)}
+.co-summary h4{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.co-line{display:flex;justify-content:space-between;gap:10px;font-size:.85rem;padding:9px 0;border-bottom:1px solid var(--line)}
+.co-line .q{color:var(--muted)}
+.secure{display:flex;align-items:center;gap:8px;font-size:.74rem;color:var(--muted);margin-top:16px;justify-content:center;text-align:center}
+.co-success{padding:52px 34px;text-align:center}
+.co-success .ok{width:66px;height:66px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:2rem;margin:0 auto 20px}
+.co-success h3{font-size:2rem;margin-bottom:8px}
+.co-success p{color:var(--muted);font-size:.92rem;line-height:1.7;max-width:42ch;margin:0 auto 10px}
+.co-success .ono{font-family:var(--f-serif);font-size:1.5rem;margin:14px 0 22px}
+
+/* FOOTER */
+footer{background:var(--ink);color:#fff;padding:62px 0 28px;margin-top:40px}
+.foot-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1.2fr;gap:36px;margin-bottom:38px}
+.foot-grid .logo{width:42px;height:42px;border-radius:7px;background:#fff;color:var(--ink);display:grid;place-items:center;font-family:var(--f-serif);font-size:1.4rem;font-weight:700}
+.foot-grid .fnm{font-family:var(--f-serif);font-size:1.3rem;margin-top:14px}
+.foot-grid p{color:rgba(255,255,255,.55);font-size:.85rem;max-width:32ch;margin-top:8px;line-height:1.7}
+.foot-col h4{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:15px}
+.foot-col a{display:block;color:rgba(255,255,255,.75);font-size:.85rem;margin-bottom:11px;cursor:pointer}
+.foot-col a:hover{color:#fff}
+.pays{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.pays span{font-size:.63rem;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);padding:5px 9px;border-radius:3px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.78rem;color:rgba(255,255,255,.45)}
+
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:13px 24px;border-radius:5px;font-size:.84rem;opacity:0;pointer-events:none;transition:all .3s;z-index:100;box-shadow:var(--shadow)}
+.toast.show{opacity:1;transform:translateX(-50%)}
+
+@media(max-width:960px){
+  .hero-in{grid-template-columns:1fr;gap:30px;padding:46px 0}
+  .hero-visual{aspect-ratio:16/12;order:-1}
+  .trust-in{grid-template-columns:1fr 1fr}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .modal-grid{grid-template-columns:1fr}.modal-img{aspect-ratio:16/12}
+  .co-grid{grid-template-columns:1fr}.co-form{border-right:none;border-bottom:1px solid var(--line)}
+  .modal{width:100vw;height:100%;max-height:100%;border-radius:0;top:0;left:0;transform:none}.modal.open{transform:none}
+  .card .quick{transform:none;position:static;background:transparent;color:var(--accent-d);padding:0 0 10px}
+  .banner{padding:34px 24px}.foot-grid{grid-template-columns:1fr}
+  .hero-meta{flex-wrap:wrap;gap:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="announce"><div class="track" id="track"></div></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand"><span class="logo" id="logoLetter">İ</span><span><div class="nm" id="brandName">İZMİT SPOR</div><div class="sb" id="brandSub">Giyim · 41</div></span></a>
+    <nav class="nav-links"><a href="#urunler">Ürünler</a><a href="#nasil">Nasıl Sipariş</a><a href="#sss">S.S.S.</a><a href="#iletisim">İletişim</a></nav>
+    <button class="cart-btn" onclick="openCart()">Sepet <span class="cart-count" id="cartCount">0</span></button>
+  </div>
+</header>
+
+<section class="hero"><div class="wrap hero-in">
+  <div>
+    <span class="eyebrow upper" id="heroEyebrow">İzmit · Kocaeli</span>
+    <h1 id="heroTitle"></h1>
+    <p id="heroText"></p>
+    <div class="btns"><a href="#urunler" class="btn gold">Alışverişe Başla</a><a href="#nasil" class="btn ghost">Nasıl Sipariş Verilir</a></div>
+    <div class="hero-meta" id="heroMeta"></div>
+  </div>
+  <div class="hero-visual" id="heroVisual"></div>
+</div></section>
+
+<section><div class="wrap"><div class="trust-in" id="trust"></div></div></section>
+
+<section class="section wrap" id="urunler">
+  <div class="section-head"><span class="eyebrow upper">Koleksiyon</span><h2>Ürünler</h2><div class="sd">Beğendiğiniz ürünü sepete ekleyin, siparişinizi dakikalar içinde tamamlayın.</div><div class="filters" id="filters"></div></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="wrap" id="kampanya" style="padding:10px 22px 40px"><div class="banner">
+  <span class="eyebrow upper" style="color:#fff" id="bannerEy">Fırsat</span>
+  <h3 id="bannerTitle"></h3><p id="bannerText"></p>
+  <a href="#urunler" class="btn gold">Ürünleri Gör</a>
+</div></section>
+
+<section class="section wrap" id="nasil" style="background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);max-width:none">
+  <div class="wrap" style="padding:0">
+    <div class="section-head"><span class="eyebrow upper">Kolay</span><h2>Nasıl Sipariş Verilir?</h2></div>
+    <div class="steps">
+      <div class="step"><div class="no">01</div><h4>Ürünü Seç</h4><p>Beğendiğiniz ürünü, beden seçerek sepete ekleyin. Dilediğiniz kadar ürün ekleyebilirsiniz.</p></div>
+      <div class="step"><div class="no">02</div><h4>Bilgileri Gir</h4><p>Ad, telefon ve teslimat adresinizi girin, ödeme yönteminizi seçin: Havale/EFT veya kapıda ödeme.</p></div>
+      <div class="step"><div class="no">03</div><h4>Onayla & Takip Et</h4><p>Siparişiniz WhatsApp'tan bize ulaşır. Onay sonrası 1-3 iş günü içinde kargoya verilir.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap" id="sss">
+  <div class="section-head"><span class="eyebrow upper">Yardım</span><h2>Sıkça Sorulan Sorular</h2></div>
+  <div class="faq-wrap" id="faqWrap"></div>
+</section>
+
+<footer id="iletisim"><div class="wrap">
+  <div class="foot-grid">
+    <div><div class="logo" id="logoLetter2">İ</div><div class="fnm" id="footName"></div><p id="footAbout"></p></div>
+    <div class="foot-col"><h4>Mağaza</h4><a href="#urunler">Ürünler</a><a href="#kampanya">Kampanyalar</a><a onclick="openCart()">Sepetim</a></div>
+    <div class="foot-col"><h4>Yardım</h4><a onclick="info('teslimat')">Teslimat</a><a onclick="info('iade')">İade & Değişim</a><a onclick="info('mesafeli')">Mesafeli Satış</a><a onclick="info('gizlilik')">Gizlilik / KVKK</a></div>
+    <div class="foot-col"><h4>İletişim</h4><a id="footPhone" href="#"></a><a id="footWa" href="#" target="_blank">WhatsApp</a><a id="footIg" href="#" target="_blank">Instagram</a><div class="pays" id="pays" style="margin-top:14px"></div></div>
+  </div>
+  <div class="foot-bottom"><span id="footCopy"></span><span>Güvenli alışveriş · İzmit, Kocaeli</span></div>
+</div></footer>
+
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+<div class="modal" id="modal"><button class="x" onclick="closeAll()">✕</button><div class="modal-grid">
+  <div class="modal-img" id="mImg"></div>
+  <div class="modal-body">
+    <div class="ct upper" id="mCat"></div><h3 id="mName"></h3><div class="mp" id="mPrice"></div>
+    <div class="desc" id="mDesc"></div><ul class="spec" id="mSpec"></ul>
+    <div class="lbl">Beden</div><div class="sizes" id="mSizes"></div>
+    <button class="btn gold" style="width:100%" onclick="addFromModal()">Sepete Ekle</button>
+  </div>
+</div></div>
+
+<div class="modal" id="infoModal" style="width:min(560px,94vw)"><button class="x" onclick="closeAll()">✕</button>
+  <div style="padding:34px"><h3 id="infoTitle" style="font-size:1.6rem;margin-bottom:14px"></h3><div id="infoBody" style="font-size:.9rem;color:var(--muted);line-height:1.8"></div></div>
+</div>
+
+<div class="drawer" id="drawer">
+  <div class="drawer-head"><h3>Sepetim</h3><button class="x" style="position:static;background:var(--soft)" onclick="closeAll()">✕</button></div>
+  <div class="drawer-items" id="cartItems"></div>
+  <div class="drawer-foot" id="cartFoot" style="display:none">
+    <div class="sumrow"><span>Ara toplam</span><span id="subtotal"></span></div>
+    <div class="sumrow"><span>Kargo</span><span id="shipVal"></span></div>
+    <div class="sumrow total"><span>Toplam</span><span id="total"></span></div>
+    <button class="wfull primary" onclick="openCheckout()">Siparişi Tamamla</button>
+  </div>
+</div>
+
+<div class="modal" id="checkout" style="width:min(880px,96vw)"><button class="x" onclick="closeAll()">✕</button><div id="coContent"></div></div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   AYARLAR — HER MUSTERI ICIN SADECE BURAYI DEGISTIR
+   • whatsapp : ulke kodlu, sadece rakam (90...)
+   • bank     : Havale/EFT icin banka + IBAN + hesap sahibi
+   • products : img = "assets/xxx.jpg" ya da bos (sik yer tutucu)
+   ============================================================ */
+const CONFIG = {
+  brand:"MCR", brandSub:"Men's Wear", fullName:"MCR MEN'S WEAR",
+  accent:"#e11d2a",
+  heroEyebrow:"Konya · Zafer Meydanı",
+  heroTitle:"Erkek giyimin<br>şık adresi.",
+  heroText:"Takım elbise, gömlek, ayakkabı. Beğendiğinizi sepete atın, sipariş WhatsApp'ımıza gelsin.",
+  heroImg:"assets/u-02.jpg",
+  heroMeta:[["13B+","Takipçi"],["Konya","Mağaza"],["%100","Güvenli"]],
+  bannerEy:"Fırsat", bannerTitle:"Yeni sezon kampanyası", bannerText:"Seçili ürünlerde uygun fiyat fırsatı. Stoklarla sınırlı.",
+  about:"MCR Men's Wear - ModaCrise. Konya Zafer Meydanı, Atatürk Cd. 17/B. Sipariş ve sorularınız için WhatsApp'tan ulaşın.",
+  whatsapp:"905320153599", instagram:"mcrgiyimkonya", phone:"0532 015 35 99",
+  currency:"₺",
+  shipping:{fee:49, freeOver:750},
+  bank:{name:"Banka Adı", iban:"TR00 0000 0000 0000 0000 0000 00", holder:"MCR Moda Crise"},
+  categories:["Tümü","Sweatshirt","Kazak"],
+  products:[
+    {id:1,name:"Basic Sweatshirt",category:"Sweatshirt",price:349,img:"assets/u-01.jpg",sizes:["S","M","L","XL"],desc:"Şardonlu iç dokulu, sıcak tutan düz kesim sweatshirt. Günlük kullanıma ideal.",fabric:"Pamuk / Polyester",fit:"Regular"},
+    {id:2,name:"Örme Triko Kazak",category:"Kazak",price:549,img:"assets/u-02.jpg",sizes:["S","M","L","XL"],desc:"Burgu örgü detaylı, yumuşak dokulu triko kazak. Şık ve rahat.",fabric:"Akrilik / Pamuk",fit:"Regular"},
+    {id:3,name:"Oversize Kapüşonlu",category:"Sweatshirt",price:449,img:"assets/u-03.jpg",sizes:["S","M","L","XL"],desc:"Salaş kesim kapüşonlu sweatshirt. Geniş kalıp, sokak stili.",fabric:"Pamuk / Polyester",fit:"Oversize"},
+    {id:4,name:"Yarım Fermuar Sweatshirt",category:"Sweatshirt",price:399,img:"assets/u-04.jpg",sizes:["S","M","L","XL"],desc:"Polo yaka, yarım fermuar detaylı sweatshirt. Spor şık kombinler için.",fabric:"Pamuk / Polyester",fit:"Regular"},
+    {id:5,name:"Fermuarlı Triko Kazak",category:"Kazak",price:579,img:"assets/u-05.jpg",sizes:["S","M","L","XL"],desc:"Dik yaka yarım fermuarlı burgu triko. Kışlık, sıcak tutar.",fabric:"Akrilik / Pamuk",fit:"Regular"}
+  ]
+};
+
+/* ---------- MOTOR ---------- */
+const money=n=>CONFIG.currency+n.toLocaleString("tr-TR");
+const grad=i=>{const g=[["#3f3f3f","#161616"],["#4a4a4a","#1c1c1c"],["#363636","#131313"],["#444444","#1a1a1a"],["#3a3a3a","#151515"],["#4e4e4e","#1e1e1e"],["#333333","#121212"],["#474747","#181818"]];const c=g[i%g.length];return`linear-gradient(150deg,${c[0]},${c[1]})`;};
+let cart=[]; try{const s=localStorage.getItem("izmit_cart");if(s)cart=JSON.parse(s)||[];}catch(e){}
+const save=()=>{try{localStorage.setItem("izmit_cart",JSON.stringify(cart));}catch(e){}};
+
+document.documentElement.style.setProperty("--accent",CONFIG.accent);
+const L=CONFIG.brand.charAt(0).toUpperCase();
+["logoLetter","logoLetter2"].forEach(id=>document.getElementById(id).textContent=L);
+brandName.textContent=CONFIG.brand; brandSub.textContent=CONFIG.brandSub;
+document.title=CONFIG.fullName+" — Online Mağaza";
+heroEyebrow.textContent=CONFIG.heroEyebrow; heroTitle.innerHTML=CONFIG.heroTitle; heroText.textContent=CONFIG.heroText;
+bannerEy.textContent=CONFIG.bannerEy; bannerTitle.textContent=CONFIG.bannerTitle; bannerText.textContent=CONFIG.bannerText;
+footName.textContent=CONFIG.fullName; footAbout.textContent=CONFIG.about;
+footCopy.textContent="© "+new Date().getFullYear()+" "+CONFIG.fullName;
+footPhone.textContent=CONFIG.phone; footPhone.href="tel:"+CONFIG.phone.replace(/\s/g,"");
+footWa.href="https://wa.me/"+CONFIG.whatsapp; footIg.href="https://instagram.com/"+CONFIG.instagram;
+heroVisual.innerHTML=CONFIG.heroImg?`<img src="${CONFIG.heroImg}" alt="">`:`<div class="hv-ph"><div class="l">${CONFIG.brand}</div></div>`;
+heroMeta.innerHTML=CONFIG.heroMeta.map(m=>`<div class="m"><div class="n">${m[0]}</div><div class="l">${m[1]}</div></div>`).join("");
+document.getElementById("pays").innerHTML=["Havale/EFT","Kapıda Ödeme","Kredi Kartı"].map(p=>`<span>${p}</span>`).join("");
+const annTxt=`Türkiye'nin her yerine kargo &nbsp;·&nbsp; <b>${money(CONFIG.shipping.freeOver)}</b> üzeri kargo bedava &nbsp;·&nbsp; Güvenli ödeme &nbsp;·&nbsp; Kapıda ödeme`;
+document.getElementById("track").innerHTML=`<span>${annTxt}</span><span>${annTxt}</span>`;
+
+const trustData=[["⛟","Hızlı Kargo","1-3 iş günü teslimat"],["↺","Kolay İade","14 gün içinde değişim"],["🔒","Güvenli Ödeme","Havale, kapıda, kart"],["✆","WhatsApp Destek",CONFIG.phone]];
+document.getElementById("trust").innerHTML=trustData.map(t=>`<div class="t"><span class="ic">${t[0]}</span><div><div class="tt">${t[1]}</div><div class="ts">${t[2]}</div></div></div>`).join("");
+
+const FAQ=[
+  ["Kargo ne zaman gelir?","Siparişiniz onaylandıktan sonra 1-3 iş günü içinde kargoya verilir. "+money(CONFIG.shipping.freeOver)+" ve üzeri alışverişlerde kargo ücretsizdir."],
+  ["Hangi ödeme yöntemleri var?","Havale/EFT ve kapıda ödeme (nakit veya kart) ile ödeyebilirsiniz. Online kredi kartı ödemesi yakında eklenecektir."],
+  ["İade ve değişim nasıl yapılır?","Ürünü teslim aldıktan sonra 14 gün içinde, kullanılmamış ve etiketli olmak şartıyla iade veya beden değişimi yapabilirsiniz."],
+  ["Beden seçiminde yardım alabilir miyim?","Tabii. WhatsApp'tan bize yazın, ürünün ölçülerini ve beden önerimizi paylaşalım."]
+];
+document.getElementById("faqWrap").innerHTML=FAQ.map(f=>`<details class="faq"><summary>${f[0]}<span class="ar">＋</span></summary><div class="a">${f[1]}</div></details>`).join("");
+
+function fallback(p){return `<div class="fallback" style="background:${grad(p.id)}"><span class="fn">${p.name}</span><span class="fc">${p.category}</span></div>`;}
+function visual(p){return p.img?`<img src="${p.img}" alt="${p.name}">`:fallback(p);}
+
+let activeCat="Tümü";
+const filtersEl=document.getElementById("filters");
+CONFIG.categories.forEach(c=>{const b=document.createElement("button");b.className="chip"+(c==="Tümü"?" active":"");b.textContent=c;b.onclick=()=>{activeCat=c;[...filtersEl.children].forEach(x=>x.classList.remove("active"));b.classList.add("active");renderGrid();};filtersEl.appendChild(b);});
+
+const gridEl=document.getElementById("grid");
+function renderGrid(){
+  const list=CONFIG.products.filter(p=>activeCat==="Tümü"||p.category===activeCat);
+  gridEl.innerHTML=list.map(p=>`
+    <div class="card"><div class="ph" onclick="openQuick(${p.id})">${visual(p)}<span class="tag">${p.category}</span><div class="quick">Hızlı Bak</div></div>
+      <div class="info"><div class="nm">${p.name}</div><div class="ct">${p.category}</div><div class="price">${money(p.price)}</div>
+      <button class="addbtn" onclick="quickAdd(${p.id})">Sepete Ekle</button></div></div>`).join("");
+  requestAnimationFrame(()=>{[...gridEl.querySelectorAll(".card")].forEach((c,i)=>setTimeout(()=>c.classList.add("in"),i*45));});
+}
+renderGrid();
+
+function quickAdd(id){const p=CONFIG.products.find(x=>x.id===id);addToCart(p,p.sizes[0]);afterAdd(p.name);}
+let modalProduct=null,modalSize=null;
+function openQuick(id){
+  const p=CONFIG.products.find(x=>x.id===id);modalProduct=p;modalSize=p.sizes[0];
+  mImg.innerHTML=visual(p);mCat.textContent=p.category;mName.textContent=p.name;mPrice.textContent=money(p.price);mDesc.textContent=p.desc||"";
+  mSpec.innerHTML=`<li><span class="k">Kumaş</span><span>${p.fabric||"-"}</span></li><li><span class="k">Kalıp</span><span>${p.fit||"-"}</span></li><li><span class="k">Kategori</span><span>${p.category}</span></li>`;
+  mSizes.innerHTML=p.sizes.map((s,i)=>`<button class="size${i===0?" active":""}" onclick="pickSize(this,'${s}')">${s}</button>`).join("");
+  open2("overlay","modal");
+}
+function pickSize(el,s){modalSize=s;[...mSizes.children].forEach(x=>x.classList.remove("active"));el.classList.add("active");}
+function addFromModal(){addToCart(modalProduct,modalSize);afterAdd(modalProduct.name+" ("+modalSize+")");}
+
+function addToCart(p,size){const key=p.id+"-"+size;const ex=cart.find(x=>x.key===key);if(ex)ex.qty++;else cart.push({key,id:p.id,name:p.name,price:p.price,size,img:p.img,qty:1});save();renderCart();}
+/* sepete ekleyince sepeti ac */
+function afterAdd(label){document.getElementById("modal").classList.remove("open");toast((label||"Ürün")+" sepete eklendi");openCart();}
+function changeQty(key,d){const it=cart.find(x=>x.key===key);if(!it)return;it.qty+=d;if(it.qty<=0)cart=cart.filter(x=>x.key!==key);save();renderCart();}
+function removeItem(key){cart=cart.filter(x=>x.key!==key);save();renderCart();}
+function totals(){const sub=cart.reduce((s,i)=>s+i.price*i.qty,0);const ship=(sub>0&&sub<CONFIG.shipping.freeOver)?CONFIG.shipping.fee:0;return{sub,ship,total:sub+ship};}
+function renderCart(){
+  document.getElementById("cartCount").textContent=cart.reduce((s,i)=>s+i.qty,0);
+  const box=document.getElementById("cartItems"),foot=document.getElementById("cartFoot");
+  if(!cart.length){box.innerHTML='<div class="empty">Sepetiniz boş.<br>Koleksiyondan beğendiğiniz ürünleri ekleyin.</div>';foot.style.display="none";return;}
+  foot.style.display="block";
+  box.innerHTML=cart.map(i=>{const v=i.img?`<img src="${i.img}">`:`<div class="fallback" style="background:${grad(i.id)}">${i.name.split(" ")[0]}</div>`;
+    return `<div class="ci"><div class="cim">${v}</div><div class="cd"><div class="nm">${i.name}</div><div class="meta">Beden: ${i.size}</div>
+    <div class="qty"><button onclick="changeQty('${i.key}',-1)">−</button><span>${i.qty}</span><button onclick="changeQty('${i.key}',1)">+</button></div></div>
+    <div><div class="cp">${money(i.price*i.qty)}</div><button class="rm" onclick="removeItem('${i.key}')">Kaldır</button></div></div>`;}).join("");
+  const t=totals();subtotal.textContent=money(t.sub);shipVal.textContent=t.ship===0?"Bedava":money(t.ship);total.textContent=money(t.total);
+}
+
+let payMethod="havale";
+function openCheckout(){if(!cart.length)return;renderCheckout();open2("overlay","checkout");document.getElementById("drawer").classList.remove("open");}
+function renderCheckout(){
+  const t=totals(),b=CONFIG.bank;
+  const items=cart.map(i=>`<div class="co-line"><span>${i.name} <span class="q">(${i.size}) ×${i.qty}</span></span><span>${money(i.price*i.qty)}</span></div>`).join("");
+  document.getElementById("coContent").innerHTML=`<div class="co-grid">
+    <div class="co-form"><h3>Sipariş Bilgileri</h3><div class="sub">Bilgileri doldurun, ödeme yöntemini seçin.</div>
+      <div class="two"><div class="field" id="f-ad"><label>Ad Soyad</label><input id="c-ad" placeholder="Adınız Soyadınız"></div>
+      <div class="field" id="f-tel"><label>Telefon</label><input id="c-tel" placeholder="05xx xxx xx xx" inputmode="tel"></div></div>
+      <div class="two"><div class="field" id="f-il"><label>İl</label><input id="c-il" placeholder="Kocaeli"></div>
+      <div class="field" id="f-ilce"><label>İlçe</label><input id="c-ilce" placeholder="İzmit"></div></div>
+      <div class="field" id="f-adres"><label>Açık Adres</label><textarea id="c-adres" rows="2" placeholder="Mahalle, sokak, bina/daire no"></textarea></div>
+      <div class="field"><label>Sipariş Notu (isteğe bağlı)</label><input id="c-not" placeholder="Beden/renk notu..."></div>
+      <div class="lbl" style="margin:18px 0 0">Ödeme Yöntemi</div>
+      <div class="pay-opts" id="payOpts">
+        <div class="pay ${payMethod==='havale'?'sel':''}" onclick="selPay('havale')"><div class="ph"><span class="dot"></span><div><div class="pt">Havale / EFT</div><div class="pd">IBAN'a ödeme, onay sonrası kargo</div></div></div><div class="extra">Banka: <b>${b.name}</b><br>IBAN: <b>${b.iban}</b><br>Hesap: <b>${b.holder}</b><br>Açıklamaya ad-soyad yazın.</div></div>
+        <div class="pay ${payMethod==='kapida'?'sel':''}" onclick="selPay('kapida')"><div class="ph"><span class="dot"></span><div><div class="pt">Kapıda Ödeme</div><div class="pd">Teslimatta nakit veya kart</div></div></div><div class="extra">Ürünü teslim alırken kuryeye ödersiniz.</div></div>
+        <div class="pay disabled"><div class="ph"><span class="dot"></span><div><div class="pt">Kredi / Banka Kartı</div><div class="pd">Online güvenli ödeme</div></div><span class="soon">Yakında</span></div></div>
+      </div>
+    </div>
+    <div class="co-summary"><h4>Sipariş Özeti</h4>${items}
+      <div class="co-line" style="border:none;padding-top:14px"><span class="q">Ara toplam</span><span>${money(t.sub)}</span></div>
+      <div class="co-line" style="border:none;padding:4px 0"><span class="q">Kargo</span><span>${t.ship===0?"Bedava":money(t.ship)}</span></div>
+      <div class="sumrow total" style="margin-top:12px"><span>Toplam</span><span>${money(t.total)}</span></div>
+      <button class="wfull primary" style="margin-top:10px" onclick="confirmOrder()">Siparişi Onayla</button>
+      <div class="secure">🔒 Bilgileriniz yalnızca siparişiniz için kullanılır</div>
+    </div></div>`;
+}
+function selPay(m){payMethod=m;[...document.querySelectorAll('#payOpts .pay:not(.disabled)')].forEach(e=>e.classList.remove('sel'));event.currentTarget.classList.add('sel');}
+function val(id){return (document.getElementById(id).value||"").trim();}
+function confirmOrder(){
+  const req=[["c-ad","f-ad"],["c-tel","f-tel"],["c-il","f-il"],["c-ilce","f-ilce"],["c-adres","f-adres"]];let ok=true;
+  req.forEach(([i,f])=>{const el=document.getElementById(f);if(!val(i)){el.classList.add("err");ok=false;}else el.classList.remove("err");});
+  if(!ok){toast("Lütfen zorunlu alanları doldurun");return;}
+  const t=totals(),payTxt=payMethod==='havale'?'Havale/EFT':'Kapıda Ödeme';
+  let msg=`*YENİ SİPARİŞ — ${CONFIG.fullName}*%0A%0A*Ad:* ${val('c-ad')}%0A*Telefon:* ${val('c-tel')}%0A*Adres:* ${val('c-adres')}, ${val('c-ilce')}/${val('c-il')}%0A`;
+  if(val('c-not'))msg+=`*Not:* ${val('c-not')}%0A`;
+  msg+=`%0A*Ürünler:*%0A`;cart.forEach(i=>{msg+=`• ${i.name} (${i.size}) ×${i.qty} — ${money(i.price*i.qty)}%0A`;});
+  msg+=`%0AKargo: ${t.ship===0?'Bedava':money(t.ship)}%0A*Toplam: ${money(t.total)}*%0A*Ödeme: ${payTxt}*`;
+  window.open(`https://wa.me/${CONFIG.whatsapp}?text=${msg}`,"_blank");
+  const ono="#"+Math.floor(100000+Math.random()*900000);
+  document.getElementById("coContent").innerHTML=`<div class="co-success"><div class="ok">✓</div><h3>Siparişiniz Alındı</h3><div class="ono">Sipariş No: ${ono}</div>
+    <p>Siparişiniz WhatsApp üzerinden tarafımıza iletildi. ${payMethod==='havale'?'Havale/EFT bilgileri mesajda yer alıyor; ödemeniz onaylanınca kargonuz hazırlanır.':'Siparişiniz onaylanınca en kısa sürede kargoya verilir.'}</p>
+    <button class="btn gold" style="margin-top:18px" onclick="closeAll()">Alışverişe Devam Et</button></div>`;
+  cart=[];save();renderCart();
+}
+
+const INFO={
+  teslimat:["Teslimat","Siparişleriniz onay sonrası 1-3 iş günü içinde kargoya verilir. "+money(CONFIG.shipping.freeOver)+" ve üzeri kargo ücretsizdir. (Örnek metin — kendi koşullarınıza göre düzenleyin.)"],
+  iade:["İade & Değişim","Teslimdan sonra 14 gün içinde, kullanılmamış ve etiketli ürünlerde iade/değişim yapılır. (Örnek metin.)"],
+  mesafeli:["Mesafeli Satış Sözleşmesi","Satıcı bilgileri, teslimat ve cayma hakkı koşulları bu alanda yer alır. (Örnek metin — yasal metninizi ekleyin.)"],
+  gizlilik:["Gizlilik / KVKK","Kişisel verileriniz yalnızca siparişiniz için kullanılır, üçüncü kişilerle paylaşılmaz. (Örnek metin — KVKK metninizi ekleyin.)"]
+};
+function info(k){const d=INFO[k];document.getElementById("infoTitle").textContent=d[0];document.getElementById("infoBody").textContent=d[1];open2("overlay","infoModal");}
+
+function open2(a,b){document.getElementById(a).classList.add("open");document.getElementById(b).classList.add("open");}
+function openCart(){open2("overlay","drawer");}
+function closeAll(){document.querySelectorAll(".open").forEach(e=>e.classList.remove("open"));}
+let tTimer;function toast(m){const el=document.getElementById("toast");el.textContent=m;el.classList.add("show");clearTimeout(tTimer);tTimer=setTimeout(()=>el.classList.remove("show"),2000);}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAll();});
+renderCart();
+</script>
+</body>
+</html>
